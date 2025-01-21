@@ -3,8 +3,6 @@
 Each chapter has some questions at the end.
 Some require a running a simulator, some others require you to write some code. 
 
-```
-
 # Introduction
 
 Chapter | What To Do

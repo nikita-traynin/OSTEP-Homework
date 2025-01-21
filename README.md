@@ -1,13 +1,16 @@
+# OSTEP
+Operating Systems: Three Easy Pieces
+
+This is a very popular (and free!) operating systems textbook.
+
+I have forked the homework repo for this textbook to walk through and complete all of the practice problems. All of the code will be run on an Ubuntu machine to better understand the linux kernel and its utilities. 
+
+
 # Homeworks
 
 Each chapter has some questions at the end.
 Some require a running a simulator, some others require you to write some code. 
-
-# Introduction
-
-Chapter | What To Do
---------|-----------
-[Introduction](http://www.cs.wisc.edu/~remzi/OSTEP/intro.pdf) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | No homework (yet)
+ 
 
 # Virtualization
 

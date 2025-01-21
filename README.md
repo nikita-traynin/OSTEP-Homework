@@ -3,7 +3,7 @@ Operating Systems: Three Easy Pieces
 
 This is a very popular (and free!) operating systems textbook.
 
-I have forked the homework repo for this textbook to walk through and complete all of the practice problems. All of the code will be run on an Ubuntu (kernel version 6.8.0-51-generic) machine to better understand the linux kernel and its utilities. 
+I have forked the homework repo for this textbook to walk through and complete all of the practice problems. All of the code will be run on an Ubuntu (linux 6.8.0-51-generic) machine to better understand the linux kernel and its utilities. 
 
 
 # Homeworks

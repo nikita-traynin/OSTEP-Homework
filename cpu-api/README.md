@@ -12,8 +12,10 @@ running programs. Read more about it [here](README-generator.md).
 
 # HW Question (code)
 1. Write a program that calls fork(). Before calling fork(), have the main process access a variable (e.g., x) and set its value to something (e.g., 100). What value is the variable in the child process? What happens to the variable when both the child and parent change the value of x?
+   
    A: File: forking.c. The variable is part of the program's memory, so is duplicated upon fork. Both child and parent have the same value for x. Once they change it though, they are stuck with their own versions. One process, of course, cannot access or modify the memory of another process.
-2. Write a program that opens a file (with the open() system call) and then calls fork() to create a new process. Can both the child and parent access the file descriptor returned by open()? What happens when they are writing to the file concurrently, i.e., at the same time?
+3. Write a program that opens a file (with the open() system call) and then calls fork() to create a new process. Can both the child and parent access the file descriptor returned by open()? What happens when they are writing to the file concurrently, i.e., at the same time?
+   
    A: Files: 
 
 # HW Questions (Simulator)

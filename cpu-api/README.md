@@ -19,7 +19,7 @@ running programs. Read more about it [here](README-generator.md).
    A: Files: 
 
 # HW Questions (Simulator)
-1. Run ./fork.py -s 10 and see which actions are taken. Can you predict what the process tree looks like at each step?
+1. Run ./fork.py -s 10 and see which actions are taken. Can you predict what the process tree looks like at each step?  
    A: In this simple example, yes. Only leaf processes ever exited, and forking is a deterministic procedure on a process tree.
 2. Run the simulator with a large number of actions (e.g., -a 100) and vary the fork percentage from 0.1 to 0.9. What do you think the resulting final process trees will look like as the percentage changes?
    A: This was a more interesting run as we begin to see non-leaf processes exit before their children. In this example, the children (now orphan processes) were all re-parented directly to a (the root process). So sometimes, process that are related as parent-child, can become sibling processes if the parent of the parent is exited first. And as the forking percentage approached 1, the process tree obviously grew much larger and complex.

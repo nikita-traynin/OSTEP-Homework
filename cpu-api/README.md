@@ -25,7 +25,8 @@ running programs. Read more about it [here](README-generator.md).
    A: Skipped the coding. Waitpid is a simple idea: by specifying a pid, we can be selective about which child we wait on. Useful if the process spawns multiple children for different purposes.  
 7. Write a program that creates a child process, and then in the child closes standard output (STDOUT FILENO). What happens if the child calls printf() to print some output after closing the descriptor?  
    A: Files: forkAndClose.c. Any further output to STDOUT (which includes printf calls) are not seen anywhere. This is expected when closing a file descriptor.  
-8. 
+8. Write a program that creates two children, and connects the standard output of one to the standard input of the other, using the pipe() system call.  
+   A: Files: forkAndPipe.c. I had to also call dup2 in both children. This is because, AFAIK, pipe only returns two new fds instead of piping existing ones (such as stdout or stdin). Dup2 on the other hand, can re-purpose existing fds by assigning them to the same file description of an fd you pick. To had to re-assign stdout to the write end of the pipe in child1, and re-assign stdin to the read end of the pipe in child 2. 
 
 # HW Questions (Simulator)
 1. Run ./fork.py -s 10 and see which actions are taken. Can you predict what the process tree looks like at each step?  

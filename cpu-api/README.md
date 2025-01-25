@@ -24,7 +24,7 @@ running programs. Read more about it [here](README-generator.md).
 6. Write a slight modification of the previous program, this time using waitpid() instead of wait(). When would waitpid() be useful?  
    A: Skipped the coding. Waitpid is a simple idea: by specifying a pid, we can be selective about which child we wait on. Useful if the process spawns multiple children for different purposes.  
 7. Write a program that creates a child process, and then in the child closes standard output (STDOUT FILENO). What happens if the child calls printf() to print some output after closing the descriptor?  
-   A: Any further output to STDOUT (which includes printf calls) are not seen anywhere. This is expected when closing a file descriptor.  
+   A: Files: forkAndClose.c. Any further output to STDOUT (which includes printf calls) are not seen anywhere. This is expected when closing a file descriptor.  
 8. 
 
 # HW Questions (Simulator)

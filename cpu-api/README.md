@@ -13,8 +13,19 @@ running programs. Read more about it [here](README-generator.md).
 # HW Question (code)
 1. Write a program that calls fork(). Before calling fork(), have the main process access a variable (e.g., x) and set its value to something (e.g., 100). What value is the variable in the child process? What happens to the variable when both the child and parent change the value of x?  
    A: File: forking.c. The variable is part of the program's memory, so is duplicated upon fork. Both child and parent have the same value for x. Once they change it though, they are stuck with their own versions. One process, of course, cannot access or modify the memory of another process.
-3. Write a program that opens a file (with the open() system call) and then calls fork() to create a new process. Can both the child and parent access the file descriptor returned by open()? What happens when they are writing to the file concurrently, i.e., at the same time?  
-   A: Files: 
+2. Write a program that opens a file (with the open() system call) and then calls fork() to create a new process. Can both the child and parent access the file descriptor returned by open()? What happens when they are writing to the file concurrently, i.e., at the same time?  
+   A: Files: forkWithOpen.c. Both can access the file descriptor. In my example, the process's messages were appended in entirety without breaking. However, I'm not sure whether a context switch could interrupt in the middle of a write() call and clobber the strings being written.
+3. Write another program using fork(). The child process should print “hello”; the parent process should print “goodbye”. You should try to ensure that the child process always prints first; can you do this without calling wait() in the parent?
+   A: Files: forkHelloGoodbye.c. I was able to do this by calling by adding sleep(10) in the parent process and not in the child process.
+4. Write a program that calls fork() and then calls some form of exec() to run the program /bin/ls. See if you can try all of the variants of exec(). Why do you think there are so many variants of the same basic call?
+   A: Files: forkAndExec.c. The variadic version (letter 'l' in execl) is convenient as we can call it without creating an array. It also strictly controls the number of arguments that are passed. If instead we use a version with 'v', we can pass in an arg array. This allows a dynamic amount of arguments, and also allows a potentially huge arg list that can be generated on the fly. The other versions (names with letters 'e' and 'p') allow us to use a custom environment instead of passing the current one, and optionally use the PATH variable to determine the path of the program we want to use.
+5. Now write a program that uses wait() to wait for the child process to finish in the parent. What does wait() return? What happens if you use wait() in the child?
+   A: Files: forkAndWait.c. When I accidentally used wait in the child process, I noticed it returned a -1 (signifying an error). This makes sense as the newly forked child does not have any children of its own. However, when used properly in the parent, it returns the PID of the child. It enables the parent to wait for the child to complete. Although sleep(10) did the job, it does not ensure completion. In the case of a slow set of instructions, if they don't complete in 10 seconds, they may be interrupted.
+6. Write a slight modification of the previous program, this time using waitpid() instead of wait(). When would waitpid() be useful?
+   A: Skipped the coding. Waitpid is a simple idea: by specifying a pid, we can be selective about which child we wait on. Useful if the process spawns multiple children for different purposes.
+7. Write a program that creates a child process, and then in the child closes standard output (STDOUT FILENO). What happens if the child calls printf() to print some output after closing the descriptor?
+   A: Any further output to STDOUT (which includes printf calls) are not seen anywhere. This is expected when closing a file descriptor.
+8. 
 
 # HW Questions (Simulator)
 1. Run ./fork.py -s 10 and see which actions are taken. Can you predict what the process tree looks like at each step?  

@@ -11,3 +11,6 @@ The main obstacles I ran into while trying to do that:
 
 Notice that I actually had child 1 fork into child 2. So the two children process are not siblings on the same level in the process tree, though it could be done like that as well.
 
+The next step was setting up two pipes in each direction, and timing the reads.
+Files: measurePipe2.c
+

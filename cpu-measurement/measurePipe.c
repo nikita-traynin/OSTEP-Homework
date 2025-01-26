@@ -8,6 +8,8 @@ int main() {
 	printf("In parent process! Read/write fds of pipe: %d, %d (pid: %d)\n", pipefd[0], pipefd[1], getpid());
 	int childPid = fork();
 	if(childPid == 0) {
+		int pipefd2[2];
+		pipe(pipefd2);
 		int childPid2 = fork();
 		if (childPid2 == 0) {
 			printf("In child 2! (pid: %d)\n", getpid());

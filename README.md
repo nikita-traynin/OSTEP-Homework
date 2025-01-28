@@ -3,7 +3,13 @@ Operating Systems: Three Easy Pieces
 
 This is a very popular (and free!) operating systems textbook.
 
-I have forked the homework repo for this textbook to walk through and complete all of the practice problems. All of the code will be run on an Ubuntu (linux 6.8.0-51-generic) machine to better understand the linux kernel and its utilities. 
+Here I walk through and complete all of the practice problems. All of the code will be run on an Ubuntu (linux 6.8.0-51-generic) machine to better understand the linux kernel and its utilities. 
+
+### Skipped chapters:
+MLFQ scheduler simulator (Ch.8)  
+Lottery scheduler simulator (Ch. 9)  
+Multi-CPU scheduler simulator (Ch. 10)  
+I skipped these three because there was no actual linux coding, and Ch. 7 already did simulation. Working through these wouldn't improve my actual knowledge beyond the detailed notes I already took over the chapters.
 
 
 # Homeworks
